@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 
 const Modal = ({ onClose, toggle }) => {
@@ -9,8 +9,7 @@ const Modal = ({ onClose, toggle }) => {
     <div className="fixed inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-50">
       <div
         className="bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px]
-            py-8 px-6 xs:px-10 sm:px-16 rounded shadow-glass-inset text-center space-y-8
-            "
+            py-8 px-6 xs:px-10 sm:px-16 rounded shadow-glass-inset text-center space-y-8"
       >
         <p className="font-light">Do you like to play the background music?</p>
         <div className="flex items-center justify-center space-x-4">
@@ -39,9 +38,10 @@ const Sound = () => {
   const [volume, setVolume] = useState(0.1);
   const [showModal, setShowModal] = useState(false);
 
-  const handleFirstUserInteraction = () => {
+  const handleFirstUserInteraction = useCallback(() => {
     const musicConsent = localStorage.getItem("musicConsent");
-    if (musicConsent === "true" && !isPlaying) {
+    if (musicConsent === "true" && !isPlaying && audioRef.current) {
+      audioRef.current.volume = volume;
       audioRef.current.play();
       setIsPlaying(true);
     }
@@ -49,7 +49,7 @@ const Sound = () => {
     ["click", "keydown", "touchstart"].forEach((event) =>
       document.removeEventListener(event, handleFirstUserInteraction)
     );
-  };
+  }, [isPlaying, volume]);
 
   useEffect(() => {
     const consent = localStorage.getItem("musicConsent");
@@ -70,21 +70,32 @@ const Sound = () => {
     } else {
       setShowModal(true);
     }
-  }, []);
+  }, [handleFirstUserInteraction]);
 
   const toggle = () => {
-    const newState = !isPlaying;
-    setIsPlaying(newState);
-    newState ? audioRef.current.play() : audioRef.current.pause();
-    localStorage.setItem("musicConsent", String(newState));
-    localStorage.setItem("consentTime", new Date().toISOString());
-    setShowModal(false);
+    if (audioRef.current) {
+      const newState = !isPlaying;
+      setIsPlaying(newState);
+
+      if (newState) {
+        audioRef.current.volume = volume;
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+
+      localStorage.setItem("musicConsent", String(newState));
+      localStorage.setItem("consentTime", new Date().toISOString());
+      setShowModal(false);
+    }
   };
 
   const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
+    const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
-    audioRef.current.volume = newVolume;
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
   };
 
   return (
