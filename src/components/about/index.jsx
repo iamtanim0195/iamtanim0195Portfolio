@@ -15,7 +15,7 @@ const AboutDetails = () => {
           MD.SAHADAT HOSSEN TANIM
           </h2>
           <p className="font-light  text-xs sm:text-sm md:text-base   ">
-            MERN Stack Enthusiast | Aspiring Front-End Specialist | 2nd-year CSE student. Committed to crafting seamless user experiences through innovation and collaboration. Eager to learn and contribute to the evolving landscape of web development. Let's embark on this journey to shape the future of the web together!
+            MERN Stack Enthusiast | Aspiring Front-End Specialist | 2nd-year CSE student. Committed to crafting seamless user experiences through innovation and collaboration. Eager to learn and contribute to the evolving landscape of web development. Let&apos;s embark on this journey to shape the future of the web together!
           </p>
         </ItemLayout>
 
