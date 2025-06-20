@@ -49,6 +49,22 @@ export const projectsData = [
     liveLink: "https://github.com/iamtanim0195/Heart-Failure-Prediction",
     CodeLink: "https://github.com/iamtanim0195/Heart-Failure-Prediction",
   },
+  {
+    id: 5,
+    name: "Decision Tree Practical post Prunning",
+    description: "A practical implementation of decision tree post-pruning using Python.",
+    createdAt: "2025-01-17",
+    liveLink: "https://github.com/iamtanim0195/Decision-Tree-Practical-implementaion-postPrunning",
+    CodeLink: "https://github.com/iamtanim0195/Decision-Tree-Practical-implementaion-postPrunning",
+  },
+  {
+    id: 6,
+    name: "ML projects",
+    description: "A collection of machine learning projects",
+    createdAt: "2025-04-25",
+    liveLink: "https://github.com/iamtanim0195/Ml-practice",
+    CodeLink: "https://github.com/iamtanim0195/Ml-practice",
+  },
 ];
 
 export const BtnList = [
