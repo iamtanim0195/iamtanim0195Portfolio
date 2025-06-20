@@ -27,11 +27,11 @@ export const projectsData = [
   },
   {
     id: 2,
-    name: "The Portfolio",
-    description: "All About You",
-    createdAt: "2024-04-03",
-    liveLink: "https://portfolio-tawny-kappa-56.vercel.app/",
-    CodeLink: "https://github.com/iamtanim0195/portfolio",
+    name: "🌽 Corn Plant Digital Twin Web App",
+    description: "An interactive digital twin of a corn plant that visually reflects live environmental conditions. This web app simulates real-time weather behaviors like rain and displays soil data to help monitor plant health. Designed to support future integration of machine learning for yield prediction and stress analysis.",
+    createdAt: "2025-04-28",
+    liveLink: "https://dt-sigma-five.vercel.app/",
+    CodeLink: "https://github.com/iamtanim0195/DT",
   },
   {
     id: 3,
