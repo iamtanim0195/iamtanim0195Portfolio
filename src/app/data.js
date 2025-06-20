@@ -41,6 +41,14 @@ export const projectsData = [
     liveLink: "https://home-vista.vercel.app/",
     CodeLink: "https://github.com/iamtanim0195/HomeVista",
   },
+  {
+    id: 4,
+    name: "Heart-Failure-Prediction",
+    description: "Ml model to predict heart failure",
+    createdAt: "2024-11-27",
+    liveLink: "https://github.com/iamtanim0195/Heart-Failure-Prediction",
+    CodeLink: "https://github.com/iamtanim0195/Heart-Failure-Prediction",
+  },
 ];
 
 export const BtnList = [
