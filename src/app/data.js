@@ -30,7 +30,7 @@ export const projectsData = [
     name: "The Portfolio",
     description: "All About You",
     createdAt: "2024-04-03",
-    demoLink: "https://portfolio-tawny-kappa-56.vercel.app/",
+    liveLink: "https://portfolio-tawny-kappa-56.vercel.app/",
     CodeLink: "https://github.com/iamtanim0195/portfolio",
   },
   {
@@ -38,7 +38,7 @@ export const projectsData = [
     name: "Home Vista",
     description: "Your Dream Home",
     createdAt: "2024-02-27",
-    demoLink: "https://home-vista.vercel.app/",
+    liveLink: "https://home-vista.vercel.app/",
     CodeLink: "https://github.com/iamtanim0195/HomeVista",
   },
 ];
